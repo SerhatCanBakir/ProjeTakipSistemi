@@ -1,31 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
 </head>
-<body>
-<h1>deneme</h1>
-<ul id="mesajHolder">
 
-</ul>
-<input type="text" name="" id="chatBox">
-<button id="buton">deneme</button>    
+<body>
+    <h1>deneme</h1>
+    <ul id="mesajHolder">
+
+    </ul>
+    <input type="text" name="" id="chatBox">
+    <div><button id="buton">mesaj yolla</button>
+        <button id="voiceBttn">ses Yolla</button>
+    </div>
 </body>
 <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
 <script>
+    var isVoicePressed = false;
+    var mediaRecorder
+    var audioChunks = [];
     var socket = io();
     var chatbox = document.getElementById('chatBox');
-    document.getElementById('buton').addEventListener('click',()=>{
-        socket.emit('message',chatbox.value);
+    document.getElementById('buton').addEventListener('click', () => {
+        socket.emit('message', chatbox.value);
     })
-    socket.on('mesaj al',(msj)=>{
+    socket.on('mesaj al', (msj) => {
         var mesaj = document.createElement('li');
-        mesaj.innerHTML=msj.msj;
+        mesaj.innerHTML = msj.msj;
         var list = document.getElementById('mesajHolder');
         list.appendChild(mesaj);
     })
+    document.getElementById('voiceBttn').addEventListener('click', () => {
+        if (isVoicePressed === false) {
+            isVoicePressed=true;
+        
+            navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+                mediaRecorder.start();
+                mediaRecorder.onstart = () => {
+                    console.log('ses aliniyor');
+                    audioChunks = [];
+                }
+            })
+        }else{
+            mediaRecorder.stop();
+            isVoicePressed=false;
+            mediaRecorder.onstop = ()=>{
+                console.log('ses durdu');
+                socket.emit('voiceMessage',audioChunks);
+            }
+        }
+    })
+socket.on('voiceMessage',(voiceMessage)=>{
+ const audioBlob = new Blob(voiceMessage,{type:'audio/wav'});
+ const audioUrl = URL.createObjectURL(audioBlob);
+ const audio = new Audio(audioUrl);
+
+ var ses = document.createElement('li');
+ ses.innerHTML='ses oynat';
+ ses.addEventListener('click',()=>{
+    audio.play();
+ })
+ document.getElementById('mesajHolder').appendChild(ses)
+})
 </script>
+
 </html>
