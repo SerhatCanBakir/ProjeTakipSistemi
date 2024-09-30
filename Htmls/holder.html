@@ -8,14 +8,24 @@
 </head>
 <body>
 <h1>deneme</h1>
+<ul id="mesajHolder">
+
+</ul>
+<input type="text" name="" id="chatBox">
 <button id="buton">deneme</button>    
 </body>
 <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
 <script>
     var socket = io();
+    var chatbox = document.getElementById('chatBox');
     document.getElementById('buton').addEventListener('click',()=>{
-        socket.emit('massage','deneme');
+        socket.emit('message',chatbox.value);
     })
-    
+    socket.on('mesaj al',(msj)=>{
+        var mesaj = document.createElement('li');
+        mesaj.innerHTML=msj.msj;
+        var list = document.getElementById('mesajHolder');
+        list.appendChild(mesaj);
+    })
 </script>
 </html>

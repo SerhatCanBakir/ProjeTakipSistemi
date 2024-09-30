@@ -3,9 +3,21 @@ const socketIO = require('socket.io');
 let io;
 
 function initSocket(server) {
-  io = socketIO(server);  // Socket.IO'yu başlatıyoruz
+  io = socketIO(server);  
   io.on('connection', (socket) => {
     console.log('Yeni bir kullanıcı bağlandı:', socket.id);
+
+   socket.on('message',(msj)=>{
+    console.log(msj);
+    mesaj = {userId:socket.id,msj:msj}
+    socket.emit('mesaj al',mesaj);
+   })
+  
+
+
+
+
+
 
     socket.on('disconnect', () => {
       console.log('Kullanıcı ayrıldı:', socket.id);
@@ -14,11 +26,6 @@ function initSocket(server) {
   return io;
 }
 
-function getIO() {
-  if (!io) {
-    throw new Error("Socket.io henüz başlatılmadı!");
-  }
-  return io;
-}
 
-module.exports = {initSocket,getIO};
+
+module.exports = {initSocket,};
