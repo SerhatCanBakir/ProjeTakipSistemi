@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
-    
+<h1>deneme</h1>
+<button id="buton">deneme</button>    
 </body>
+<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<script>
+    var socket = io();
+    document.getElementById('buton').addEventListener('click',()=>{
+        socket.emit('massage','deneme');
+    })
+    
+</script>
 </html>
