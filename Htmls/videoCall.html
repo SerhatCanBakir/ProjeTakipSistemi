@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoCall</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+
+<script>
+    socket = io();
+    let peerConnection ;
+    let konfigrasyonlar = {
+        iceServers:[
+        {urls:'stun:stun.l.google.com:19302'},
+        ],
+    }
+ startVideoCall = ()=>{
+    navigator.mediaDevices.getDisplayMedia({video:true,audio:true}).then(stream=>{
+        
+
+        io.emit('startVideoCall',videoCallData);}
+    );}    
+</script>
+</html>
