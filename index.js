@@ -5,13 +5,12 @@ const {routerTest} = require('./routers/testRouter.js');
 const {initSocket} = require('./Sockets/webSocketScripts.js');
 const http = require('http');
 const server = http.createServer(app);
-const {Server} = require('socket.io');
 const io = initSocket(server);
 app.use('/',router);
 app.use('/dev',routerTest);
 
 
-
+//server kullanma sebebim socket.io yu server değişkenine bağladığım için 
 server.listen(3000,()=>{
     console.log('app dinleniyor');
 })

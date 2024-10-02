@@ -1,3 +1,5 @@
+//Burayı geliştirme aşamasında sana dokunmamak için yazıyorum bunları sonra dosyalara ayırabiliriz 
+
 const {Router} = require('express');
 const path = require('path');
 const routerTest = Router();
@@ -12,6 +14,11 @@ routerTest.get('/js/:file',(req,res)=>{
     let fileName = req.params.file;
     res.sendFile(path.join(__dirname,'../JavaScripts/',fileName));
     
+})
+
+routerTest.get('/css/:file',(req,res)=>{
+    let fileName = req.params.file;
+    res.sendFile(path.join(__dirname,'../Css/',fileName));
 })
 module.exports = {
     routerTest,
