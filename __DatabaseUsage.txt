@@ -1,0 +1,28 @@
+JWT imzalancak data = {
+nick:string,
+projects:[
+{projectName:String, 
+pol:String or int,
+},
+]
+}
+------------------------------
+GörevDatası = 
+header:String,
+comment:String,
+startDate:date,
+deadline:date,
+commission:int(id),
+-----------------------------
+kullanıcı datası = 
+mail:string,
+nick:string,
+password:string(hashlenmiş şekilde),
+id:int,
+projects:[{projectName:String,rol:string or int}],
+------------------------------
+mesaj data = {SendingUser:int(id),Content={type:boolen(1 ise sesli 0 ise yazılı),message:(String or [buffer])},RoomId:int}
+-------------------------------
+room Data = RoomId:int users:[int(id)],
+------------------------------------
+Aklıme gelen bunlar
