@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startEverything": "start npm run startServer &&npm run byPassSignature && npm run startPeerJs",
+    "startServer": " npx run index.js",
+    "bypassSignature": "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass",
+    "startPeerJs": "peerjs --port 3001"
   },
   "author": "",
   "license": "ISC",
