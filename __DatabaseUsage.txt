@@ -26,3 +26,4 @@ mesaj data = {SendingUser:int(id),Content={type:boolen(1 ise sesli 0 ise yazıl�
 room Data = RoomId:int users:[int(id)],
 ------------------------------------
 Aklıme gelen bunlar
+bu json demek = {} 
