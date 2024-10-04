@@ -7,6 +7,9 @@ router.get('/',(req,res)=>{
 router.get('/anasayfa',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/anasayfa.html'));
 })
+router.get('/filethings',(req,res)=>{
+res.sendFile(path.join(__dirname,'../Htmls/filetake.html'));
+})
 //buraya giriş proje seçimi sayfası görev sayfası mesajlaşma ve video arama sayfası için kullanılıcak sadece 
 // kalan istekleri başka dosyada handle lıcaz 
 module.exports = {
