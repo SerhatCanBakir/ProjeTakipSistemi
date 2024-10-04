@@ -9,7 +9,7 @@ const io = initSocket(server);
 app.use('/',router);
 app.use('/dev',routerTest);
 
-
+// dev test için var
 //server kullanma sebebim socket.io yu server değişkenine bağladığım için 
 server.listen(3000,()=>{
     console.log('app dinleniyor');
