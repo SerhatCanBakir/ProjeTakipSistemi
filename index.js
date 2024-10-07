@@ -8,7 +8,9 @@ const server = http.createServer(app);
 const io = initSocket(server);
 app.use('/',router);
 app.use('/dev',routerTest);
-
+app.get('*',(req,res)=>{
+    res.send('<h1>sayfa yok agam</h1>')
+})
 // dev test için var
 //server kullanma sebebim socket.io yu server değişkenine bağladığım için 
 server.listen(3000,()=>{
