@@ -16,5 +16,5 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
       const token =  data.token
       document.cookie = 'token='+token+';';
       window.location.href='/anasayfa';
+      })
     })
-})
