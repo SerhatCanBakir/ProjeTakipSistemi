@@ -34,3 +34,13 @@ function saveTask() {
         closeModal();
     }
 }
+
+document.getElementById('closebtn').addEventListener('click',()=>closeNav());
+    document.getElementById('openbtn').addEventListener('click',()=>openNav())
+    document.getElementById('add-task-btn-atanmamis').addEventListener('click',()=>addTask('atanmamis'));
+    document.getElementById('add-task-btn-baslangic').addEventListener('click',()=>addTask('baslangic'));
+    document.getElementById('add-task-btn-yapilmakta').addEventListener('click',()=>addTask('yapilmakta'));
+    document.getElementById('add-task-btn-zamani').addEventListener('click',()=>addTask('zamani'));
+    document.getElementById('add-task-btn-tamamlanmis').addEventListener('click',()=>addTask('tamamlanmis'));
+    document.getElementById('savebtn').addEventListener('click',()=>saveTask());
+    document.getElementById('closbtn').addEventListener('click',()=>closeModal());
