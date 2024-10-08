@@ -6,7 +6,7 @@ const routerTest = Router();
 routerTest.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/holder.html'));
 })
-routerTest.get('/videoCall',(req,res)=>{
+routerTest.get('/videoCall/:roomId',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/videoCall.html'));
 })
 
