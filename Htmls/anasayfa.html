@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görev Yönetim Sistemi</title>
+    <style></style>
+    <link rel="stylesheet" href="/dev/css/stylemainpage.css">
+
+    
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <a href="#" class="closebtn" id="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Dosya Yükle</a>
+        <a href="#">Mesajlaşma</a>
+        <a href="#">Kullanıcı Profili</a>
+        <a href="#">İletişim</a>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <img src="profile.jpg" alt="Profil Fotoğrafı" class="profile-pic">
+            <h1>Proje Yönetimi Anasayfası</h1>
+            <button class="openbtn" id="openbtn" onclick="openNav()">☰ Menü</button>
+        </header>
+
+        <div class="task-sections">
+            <div class="task-column">
+                <h2>Atanmamışlar</h2>
+                <button class="add-task-btn" id="add-task-btn-atanmamis">Görev Ekle</button>
+                <div class="task-list" id="atanmamis"></div>
+            </div>
+            <div class="task-column">
+                <h2>Başlangıç Süresi Gelmemişler</h2>
+                <button class="add-task-btn" id="add-task-btn-baslangic">Görev Ekle</button>
+                <div class="task-list" id="baslangic"></div>
+            </div>
+            <div class="task-column">
+                <h2>Yapılmakta Olanlar</h2>
+                <button class="add-task-btn" id="add-task-btn-yapilmakta" >Görev Ekle</button>
+                <div class="task-list" id="yapilmakta"></div>
+            </div>
+            <div class="task-column">
+                <h2>Zamanı Geçmişler</h2>
+                <button class="add-task-btn" id="add-task-btn-zamani" >Görev Ekle</button>
+                <div class="task-list" id="zamani"></div>
+            </div>
+            <div class="task-column">
+                <h2>Tamamlanmışlar</h2>
+                <button class="add-task-btn" id="add-task-btn-tamamlanmis" >Görev Ekle</button>
+                <div class="task-list" id="tamamlanmis"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closbtn">&times;</span>
+            <h2>Görev Ekle</h2>
+            <label for="taskName">Görev Adı:</label>
+            <input type="text" id="taskName" required>
+            <label for="taskDate">Tarih Seç:</label>
+            <input type="date" id="taskDate" required>
+            <label for="taskTime">Saat Seç:</label>
+            <input type="time" id="taskTime" required>
+            <button id="savebtn">Görevi Kaydet</button>
+        </div>
+    </div>
+    
+</body>
+<script src="/dev/js/scriptformainpage.js" type="module">
+</script>
+</html>
+
