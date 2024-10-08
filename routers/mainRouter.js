@@ -12,6 +12,10 @@ router.get('/anasayfa',(req,res)=>{
 router.get('/login',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/login.html'))
 })
+
+router.get('/videocall',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../Htmls/videoCall.html'))
+})
 //buraya giriş proje seçimi sayfası görev sayfası mesajlaşma ve video arama sayfası için kullanılıcak sadece 
 // kalan istekleri başka dosyada handle lıcaz 
 module.exports = {
