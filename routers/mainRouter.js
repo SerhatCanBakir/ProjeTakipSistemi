@@ -18,6 +18,9 @@ res.sendFile(path.join(__dirname,'../Htmls/messaging.html'))
 router.get('/loadFile',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/loadFile.html'))
 })
+router.get('/filethings',(req,res)=>{
+res.sendFile(path.join(__dirname,'../Htmls/filetake.html'));
+})
 //buraya giriş proje seçimi sayfası görev sayfası mesajlaşma ve video arama sayfası için kullanılıcak sadece 
 // kalan istekleri başka dosyada handle lıcaz 
 module.exports = {

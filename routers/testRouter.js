@@ -27,6 +27,21 @@ const authorityControl = (req,res,next)=>{
 
 
 
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: (req,res,next)=>{
+    let pathway = req.params.path;
+        
+     if(!pathway){
+    next(null,path.join(__dirname,'../ProjectFiles/'+req.params.project));}else{
+        next(null,path.join(__dirname,'../ProjectFiles/'+req.params.project,'/',req.params.pathway));
+    }
+    }
+})
+
+const upload = multer({storage:storage});
+
 routerTest.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/login.html'));
 })
@@ -63,6 +78,25 @@ if(exitst)
 
 routerTest.get('/posts',authorityControl,(req,res)=>{
 res.send({deneneme:'data'});
+})
+
+
+
+routerTest.get('/getfile/:project/:file',(req,res)=>{
+    let project = req.params.project;
+    let file = req.params.file;
+    res.download(path.join(__dirname,'../ProjectFiles/'+project+'/'+file));
+})
+
+routerTest.get('/getfile/:project/:path/:file',(req,res)=>{
+    let project = req.params.project;
+    let pathway = req.params.path
+    let file = req.params.file;
+    res.download(path.join(__dirname,'../ProjectFiles/'+project+'/'+pathway+'/'+file));
+})
+
+routerTest.post('/sendfile',upload.single('file'),(req,res)=>{
+    res.sendStatus(200);
 })
 
 
