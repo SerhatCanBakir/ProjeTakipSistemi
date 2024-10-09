@@ -45,7 +45,7 @@ const upload = multer({storage:storage});
 routerTest.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/login.html'));
 })
-routerTest.get('/videoCall',(req,res)=>{
+routerTest.get('/videoCall/:roomId',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/videoCall.html'));
 })
 

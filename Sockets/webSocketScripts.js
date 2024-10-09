@@ -19,8 +19,12 @@ socket.on('voiceMessage',(voiceMessage)=>{
  socket.emit('voiceMessage',voiceMessage);
 })
 
+socket.on('join-room', (roomId, userId) => {
+  socket.join(roomId)
+  socket.to(roomId).emit('user-connected', userId)})
 
 
+socket.on
 
 
     socket.on('disconnect', () => {
