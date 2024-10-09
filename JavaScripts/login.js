@@ -10,7 +10,7 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
         if(res.status===200){
             return res.json();
         }else{
-            alert('paralo veya sifre hatali');
+            alert('parola veya sifre hatali');
         }
     }).then(data => {
       const token =  data.token

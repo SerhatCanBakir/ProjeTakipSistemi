@@ -108,6 +108,41 @@ h1 {
     background-color: #218838;
 }
 
+/* Yeni eklenen görevler için kutu görünümü */
+.task-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Görev yönetim butonları */
+.task-item-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.move-left-btn, .move-right-btn, .delete-task-btn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-task-btn {
+    background-color: #dc3545;
+}
+
+.move-left-btn:hover, .move-right-btn:hover, .delete-task-btn:hover {
+    opacity: 0.8;
+}
+
 /* Modal Styling */
 .modal {
     display: none;

@@ -28,7 +28,7 @@ const authorityControl = (req,res,next)=>{
 
 
 routerTest.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'../Htmls/holder.html'));
+    res.sendFile(path.join(__dirname,'../Htmls/login.html'));
 })
 routerTest.get('/videoCall',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/videoCall.html'));
