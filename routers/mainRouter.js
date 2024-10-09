@@ -12,6 +12,9 @@ router.get('/anasayfa',(req,res)=>{
 router.get('/login',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/login.html'))
 })
+router.get('/messaging',(req,res)=>{
+res.sendFile(path.join(__dirname,'../Htmls/messaging.html'))
+})
 router.get('/loadFile',(req,res)=>{
     res.sendFile(path.join(__dirname,'../Htmls/loadFile.html'))
 })
